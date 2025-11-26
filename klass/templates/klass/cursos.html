@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Cursos</title>
+</head>
+<body>
+    <h1>Cursos Ofertados</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Título do Curso</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in lista_de_cursos %}
+            <tr>
+                <td>{{ curso.titulo }}</td>
+                <td>{{ curso.descricao }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

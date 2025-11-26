@@ -1,0 +1,13 @@
+# Ambiente Virtual
+venv/
+.env
+
+# Banco de Dados
+db.sqlite3
+
+# Arquivos compilados do Python (lixo gerado automaticamente)
+__pycache__/
+*.pyc
+
+# Arquivos do sistema operacional
+.DS_Store

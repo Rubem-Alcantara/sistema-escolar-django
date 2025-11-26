@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Alunos</title>
+</head>
+<body>
+    <h1>Alunos Cadastrados</h1>
+    <ul>
+        {% for aluno in lista_de_alunos %}
+            <li>
+                <strong>Nome:</strong> {{ aluno.nome }} {{ aluno.sobrenome }} <br>
+                <strong>Email:</strong> {{ aluno.email }} <br>
+                <strong>Cursos:</strong> 
+                {% for curso in aluno.cursos.all %}
+                    {{ curso.titulo }}, 
+                {% endfor %}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>
