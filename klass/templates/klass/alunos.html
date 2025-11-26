@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Alunos</title>
-</head>
-<body>
-    <h1>Alunos Cadastrados</h1>
-    <ul>
+{% extends 'klass/base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">📋 Alunos Matriculados</h2>
+
+    <div class="row">
         {% for aluno in lista_de_alunos %}
-            <li>
-                <strong>Nome:</strong> {{ aluno.nome }} {{ aluno.sobrenome }} <br>
-                <strong>Email:</strong> {{ aluno.email }} <br>
-                <strong>Cursos:</strong> 
-                {% for curso in aluno.cursos.all %}
-                    {{ curso.titulo }}, 
-                {% endfor %}
-            </li>
-            <hr>
+        <div class="col-md-4 mb-4"> <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ aluno.nome }} {{ aluno.sobrenome }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ aluno.email }}</h6>
+                    <p class="card-text">
+                        <strong>Cursos:</strong>
+                        <ul class="list-unstyled">
+                            {% for curso in aluno.cursos.all %}
+                                <li><span class="badge bg-success">{{ curso.titulo }}</span></li>
+                            {% empty %}
+                                <li class="text-muted">Nenhum curso matriculado.</li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <div class="alert alert-warning">Nenhum aluno encontrado no sistema.</div>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+{% endblock %}

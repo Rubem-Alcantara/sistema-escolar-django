@@ -1,6 +1,17 @@
 from django.shortcuts import render
 from .models import Aluno, Curso
 
+def index(request):
+    # Contando os registros no banco
+    total_alunos = Aluno.objects.count()
+    total_cursos = Curso.objects.count()
+
+    contexto = {
+        'total_alunos': total_alunos,
+        'total_cursos': total_cursos,
+    }
+    return render(request, 'klass/index.html', contexto)
+
 # Função para exibir a lista de alunos
 def lista_alunos(request):
     # 1. Buscando todos os objetos na tabela "Aluno" no banco de dados

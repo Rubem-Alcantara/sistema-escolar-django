@@ -1,0 +1,33 @@
+{% extends 'klass/base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-primary">Bem-vindo ao Klass</h1>
+        <p class="fs-4">Sistema de gestão escolar desenvolvido com Django.</p>
+        <hr class="my-4">
+        <p>Utilize o menu acima para navegar ou clique abaixo para gerenciar.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'lista_alunos' %}" role="button">Ver Alunos</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card text-center border-primary mb-3 shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">Alunos Matriculados</div>
+            <div class="card-body">
+                <h1 class="display-4">{{ total_alunos }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card text-center border-success mb-3 shadow-sm">
+            <div class="card-header bg-success text-white fw-bold">Cursos Ofertados</div>
+            <div class="card-body">
+                <h1 class="display-4">{{ total_cursos }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
